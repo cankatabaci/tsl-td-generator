@@ -18,34 +18,63 @@ export class AppComponent {
   imageDescription:string = '';
   selectedTeam:any = '';
   newArr:any[] = []
+  tdNamesFiltered:any[] = [];
 
   ngOnInit(): void {
-    for(var i = 0 ; i < this.tdNames.length; i++){
-      this.newArr[i] = {};
-      this.newArr[i]['name'] = this.tdNames[i].name;
-      this.newArr[i]['img'] = this.imgRand();
-    }
+
+    this.tdNamesAll.forEach(element => {
+      if(element.isActive == true){
+        this.tdNamesFiltered.push(element);
+      }
+    });
  }
 
- tdNames = [
-   {name : 'Çağdaş Atan', img: 'assets/images/cagdasatan.jpg'},
-   {name : 'Samet Aybaba', img: 'assets/images/sametaybaba.jpg'},
-   {name : 'Bülent Korkmaz', img: 'assets/images/bulentkorkmaz.jpg'},
-   {name : 'Emre Belözoğlu', img: 'assets/images/emrebelozoglu.jpg'},
-   {name : 'Fuat Çapa', img: 'assets/images/fuatcapa.jpg'},
-   {name : 'Hamza Hamzaoğlu', img: 'assets/images/hamzahamzaoglu.jpg'},
-   {name : 'İsmail Kartal', img: 'assets/images/ismailkartal.jpg'},
-   {name : 'Kemal Özdeş', img: 'assets/images/kemalozdes.jpg'},
-   {name : 'Mesut Bakkal', img: 'assets/images/mesutbakkal.jpg'},
-   {name : 'Okan Buruk', img: 'assets/images/okanburuk.jpg'},
-   {name : 'Yılmaz Vural', img: 'assets/images/yilmazvural.jpg'},
+ tdNamesAll = [
+   {name : 'Çağdaş Atan', img: 'assets/images/cagdasatan.jpg', isActive: true},
+   {name : 'Samet Aybaba', img: 'assets/images/sametaybaba.jpg', isActive: true},
+   {name : 'Bülent Korkmaz', img: 'assets/images/bulentkorkmaz.jpg', isActive: true},
+   {name : 'Emre Belözoğlu', img: 'assets/images/emrebelozoglu.jpg', isActive: true},
+   {name : 'Fuat Çapa', img: 'assets/images/fuatcapa.jpg', isActive: true},
+   {name : 'Hamza Hamzaoğlu', img: 'assets/images/hamzahamzaoglu.jpg', isActive: true},
+   {name : 'İsmail Kartal', img: 'assets/images/ismailkartal.jpg', isActive: true},
+   {name : 'Kemal Özdeş', img: 'assets/images/kemalozdes.jpg', isActive: true},
+   {name : 'Mesut Bakkal', img: 'assets/images/mesutbakkal.jpg', isActive: true},
+   {name : 'Okan Buruk', img: 'assets/images/okanburuk.jpg', isActive: true},
+   {name : 'Yılmaz Vural', img: 'assets/images/yilmazvural.jpg', isActive: true},
+   {name : 'Mehmet Özdilek', img: 'assets/images/mehmetozdilek.jpg', isActive: true},
+   {name : 'Hüseyin Cimsir', img: 'assets/images/huseyincimsir.jpg', isActive: true},
+   {name : 'Mustafa Kaplan', img: 'assets/images/mustafakaplan.jpg', isActive: true},
+   {name : 'Hakan Kutlu', img: 'assets/images/hakankutlu.jpg', isActive: true},
+   {name : 'Safet Susic', img: 'assets/images/saffetsusic.jpg', isActive: true},
+   {name : 'Tamer Tuna', img: 'assets/images/tamertuna.jpg', isActive: true},
+   {name : 'Tayfur Havutcu', img: 'assets/images/tayfurhavutcu.jpg', isActive: true},
+   {name : 'Ibrahim Üzülmez', img: 'assets/images/ibrahimuzulmez.jpg', isActive: true},
+   {name : 'Fatih Terim', img: 'assets/images/fatihterim.jpg', isActive: false},
+   {name : 'Riza Calimbay', img: 'assets/images/rizacalimbay.jpg', isActive: false},
+   {name : 'Ünal Karaman', img: 'assets/images/unalkaraman.jpg', isActive: true},
+   {name : 'Marius Sumudica', img: 'assets/images/sumudica.jpg', isActive: true},
+   {name : 'Ertuğrul Sağlam', img: 'assets/images/ertugrulsaglam.jpg', isActive: true},
+   {name : 'Mustafa Er', img: 'assets/images/mustafaer.jpg', isActive: true},
+   {name : 'Hüseyin Cimşir', img: 'assets/images/huseyincimsir.jpg', isActive: true},
+   {name : 'Tayfun Korkut', img: 'assets/images/tayfunkorkut.jpg', isActive: true},
+   {name : 'Christoph Daum', img: 'assets/images/daum.jpg', isActive: true},
+   {name : 'Ali Tandoğan', img: 'assets/images/alitandogan.jpg', isActive: true},
+   {name : 'Ümit Özat', img: 'assets/images/umitozat.jpg', isActive: true},
+   {name : 'Ahmet Taşyürek', img: 'assets/images/ahmettasyurek.jpg', isActive: true},
+   {name : 'Giray Bulak', img: 'assets/images/giraybulak.jpg', isActive: true},
+   {name : 'Engin İpekoğlu', img: 'assets/images/enginipekoglu.jpg', isActive: true},
+   {name : 'Karl-Heinz Feldkamp', img: 'assets/images/feldkamp.jpg', isActive: true},
+   {name : 'Werner Lorant', img: 'assets/images/wernerlorant.jpg', isActive: true},
+   {name : 'Ziya Dogan', img: 'assets/images/ziyadogan.jpg', isActive: true},
+   {name : 'Michael Skibbe', img: 'assets/images/skibbe.jpg', isActive: true},
+   {name : 'Yücel Ildiz', img: 'assets/images/yucelildiz.jpg', isActive: true},
  ];
 
 
   imgRand(){
     var path = 'assets/images/';
-    var num = Math.floor( Math.random() * this.tdNames.length );
-    var img = this.tdNames[ num ];
+    var num = Math.floor( Math.random() * this.tdNamesFiltered.length );
+    var img = this.tdNamesFiltered[ num ];
     var imgPath = img;
 
     return imgPath;
